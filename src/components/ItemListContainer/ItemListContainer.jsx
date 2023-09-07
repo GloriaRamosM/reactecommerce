@@ -1,8 +1,10 @@
 const ItemListContainer = ({ greeting }) => {
     return (
-        <>
-            {greeting}
-        </>
+        <div className="flex justify-center">
+            <div >
+                {greeting}
+            </div>
+        </div>
     );
 };
 

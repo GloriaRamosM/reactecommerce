@@ -2,7 +2,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const CartWidget = () => {
     return (
-        <span>
+        <span className='flex items-center' >
             <AiOutlineShoppingCart /> 0
         </span>
     );
