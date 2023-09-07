@@ -1,6 +1,6 @@
 const ItemListContainer = ({ greeting }) => {
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center text-2xl">
             <div >
                 {greeting}
             </div>
