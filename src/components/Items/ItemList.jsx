@@ -6,7 +6,7 @@ const ItemList = ({ product }) => {
 
         <div className="flex font-sans w-52">
             <div className="flex-none w-48 relative">
-                <img src={product.img} alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <img src={product.img} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
             </div>
             <form className="flex-auto p-6">
                 <div className="flex flex-wrap">
@@ -14,7 +14,7 @@ const ItemList = ({ product }) => {
                         {product.name}
                     </h1>
                     <div className="text-lg font-semibold text-slate-500">
-                       $ {product.price}
+                        $ {product.price}
                     </div>
                     <div className="w-full flex-none text-sm font-medium text-slate-700 mt-2 py-7">
                         <p> Stock : {product.stock} </p>
