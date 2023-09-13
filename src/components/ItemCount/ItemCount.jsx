@@ -19,6 +19,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                 <button onClick={suma} className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="button">
                     +
                 </button>
+                <p>{productNumber}</p>
                 <button onClick={resta} clasNames="h-10 px-6 font-semibold rounded-md border border-slate-200 text-slate-900" type="button">
                     -
                 </button>
