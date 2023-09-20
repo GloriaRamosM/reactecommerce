@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ItemList from './ItemList';
+import ItemList from '../ItemList/ItemList';
+import "../ItemListContainer/ItemListContainer.css";
 
 
 
@@ -66,9 +67,8 @@ const ItemListContainer = () => {
     }, []); // el efecto se ejecuta una vez al montar el componente por la dependencia declarada pero vacia
 
     return (
-        <div >
-            {loading && <p> Cargando...</p>}
-            {error && <p> {error}</p>}
+        <div className="container">
+            <h1 style ={{ textAlign: "center"}}>Productos</h1>
             {
                 // mapeamos los datos de productos ( cuando se resolvio todo exitosamente) y renderizamos cada uno usando el componente ItemList
                 data.map((el) => (
