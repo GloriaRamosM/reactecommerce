@@ -1,0 +1,11 @@
+.container-landing  {
+    margin: 0px;
+    padding: 40px;
+    /* background-color: rgb(218, 248, 249) */;
+     background-image: url(https://cdn.colombia.com/sdi/2020/07/01/hombre-reddit-prefirio-divorcio-vender-coleccion-funko-pops-841616.webp);
+     min-width: 100vw;
+     height: 100vh;
+     background-size: cover;
+    
+
+}

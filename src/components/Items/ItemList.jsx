@@ -2,18 +2,16 @@ import React from 'react'
 import ItemCount from '../ItemCount/ItemCount';
 
 const ItemList = ({ product }) => {
-    const onAdd = (number) => {
-        console.log(number);
+    const onAdd = (productNumber) => {
+        console.log(productNumber);
     }
 
     return (
-
-
         <div className="flex font-sans w-52">
             <div className="flex-none w-48 relative">
                 <img src={product.img} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
             </div>
-            <form className="flex-auto p-6">
+            <div className="flex-auto p-6">
                 <div className="flex flex-wrap">
                     <h1 className="flex-auto text-lg font-semibold text-slate-900">
                         {product.name}
@@ -25,12 +23,12 @@ const ItemList = ({ product }) => {
                         <p> Stock : {product.stock} </p>
                     </div>
                 </div>
-                <ItemCount stock={20} initial={0} onAdd={onAdd} />
+                <ItemCount stock={product.stock} initial={0} onAdd={onAdd} />
 
                 <p className="text-sm text-slate-700">
                     Free shipping
                 </p>
-            </form>
+            </div>
         </div>
 
 
