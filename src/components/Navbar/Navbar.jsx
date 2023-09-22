@@ -14,7 +14,8 @@ const Navbar = () => {
         <li className='mx-5 text-zinc-50'>
         <Link to={'/items'}> Productos </Link>
         </li>
-        <li className='mx-5 text-zinc-50'>Contacto</li>
+        <li className='mx-5 text-zinc-50'> <Link to={'/Caracters'}> Contacto</Link>
+        </li>
         </ul>
 
         <CartWidget/>
