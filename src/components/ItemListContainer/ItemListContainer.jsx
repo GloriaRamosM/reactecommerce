@@ -25,9 +25,9 @@ const ItemListContainer = () => {
     }, [categoryId])
 
     return (
-        <>
-            <ItemList data={data} />
-        </>
+        <div className="flex flex-row flex-wrap space-x-32 space-y-32">
+            <ItemList data={data}  />
+        </div>
     )
 }
 

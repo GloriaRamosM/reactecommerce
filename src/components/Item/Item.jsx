@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 
 const Item = ({ dato }) => {
     return (
+
+
         <div className="flex font-sans w-52">
             <div className="flex-none w-48 relative">
                 <img src={dato.image} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
@@ -23,6 +25,7 @@ const Item = ({ dato }) => {
 
             </div>
         </div>
+
     )
 }
 
