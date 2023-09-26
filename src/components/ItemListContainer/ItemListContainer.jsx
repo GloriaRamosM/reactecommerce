@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
-import ItemList from './ItemList';
-import "../ItemListContainer/ItemListContainer.css";
+import ItemList from '../ItemList/ItemList';
+import "../ItemListContainer/ItemListContainer.css"
+import { useParams } from "react-router-dom";
 
 
 
 
 const ItemListContainer = () => {
+    const { categoryId } = useParams()
+    
     const [data, setData] = useState([])
 
+    const apiUrl = `https://rickandmortyapi.com/api/character${categoryId ? `/?status=${categoryId}` : '/'}`
+
     const getData = () => {
-        fetch("https://rickandmortyapi.com/api/character")
+        fetch(apiUrl)
             .then((response) => response.json())
             .then((data) => setData(data.results))
             .catch((error) => console.log(error))
@@ -17,9 +22,7 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         getData()
-    }, [])
-
-    console.log(data)
+    }, [categoryId])
 
     return (
         <>

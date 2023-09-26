@@ -11,12 +11,13 @@ function App() {
     <BrowserRouter>
 
       <Navbar />
-      
+
       <Routes>
 
         <Route path='/' element={<LandingPage />} />
         <Route path='/items' element={<ItemListContainer />} />
-        <Route path='/Caracters' element={<ItemDetailContainer />} />
+        <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+        <Route path='/category/:categoryId' element={<ItemListContainer />} />
 
       </Routes>
 
