@@ -1,10 +1,16 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount';
-
+import { useState} from 'react'
+import { Link } from 'react-router-dom'
 
 const ItemDetail = ({item}) => {
+
+const [sent, setSent]= useState(false);
+
+
     const onAdd = (productNumber) => {
         console.log(productNumber);
+        setSent(true)
     }
 
     return(
@@ -16,7 +22,8 @@ const ItemDetail = ({item}) => {
         <p>Estatus: {item.status}</p>
         <p>Para adquirir la postal, agrega al carrito</p>
         
-        <ItemCount stock={20} initial={0} onAdd={onAdd} />
+      {!sent && <ItemCount stock={20} initial={1} onAdd={onAdd} />  }
+      {sent && <button>    <Link to={'/cart'}> Terminar mi compra </Link>  </button>}  
         
         
     </div>

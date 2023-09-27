@@ -5,6 +5,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from './components/LandingPage/LandingPage';
 import ItemDetailContainer from './components/Item/ItemDetailContainer';
+import Cart from './components/CartWidget/Cart'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/items' element={<ItemListContainer />} />
         <Route path='/item/:itemId' element={<ItemDetailContainer />} />
         <Route path='/category/:categoryId' element={<ItemListContainer />} />
+        <Route path='/cart' element={<Cart/>} />
 
       </Routes>
 

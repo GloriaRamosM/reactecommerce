@@ -10,6 +10,7 @@ const ItemListContainer = () => {
     const { categoryId } = useParams()
 
     const [loading, setLoading] = useState(true)
+    
     const [error, setError] = useState("")
 
     const [data, setData] = useState([])
