@@ -8,7 +8,10 @@ import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
     const { categoryId } = useParams()
-    
+
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState("")
+
     const [data, setData] = useState([])
 
     const apiUrl = `https://rickandmortyapi.com/api/character${categoryId ? `/?status=${categoryId}` : '/'}`
@@ -17,16 +20,22 @@ const ItemListContainer = () => {
         fetch(apiUrl)
             .then((response) => response.json())
             .then((data) => setData(data.results))
-            .catch((error) => console.log(error))
+            .catch((error) => setError(error))
+            .finally(() => setLoading(false))
     }
+    console.log(error)
+
 
     useEffect(() => {
         getData()
     }, [categoryId])
 
     return (
+
         <div className="flex flex-row flex-wrap space-x-32 space-y-32">
-            <ItemList data={data}  />
+            {loading && <p> Cargando...</p>}
+            {error && <p> 404 </p>}
+            <ItemList data={data} />
         </div>
     )
 }
