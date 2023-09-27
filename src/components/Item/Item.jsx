@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../Item/item.css'
 
 const Item = ({ dato }) => {
     return (
@@ -21,7 +22,7 @@ const Item = ({ dato }) => {
                         <p> ID : {dato.id}  </p>
                     </div>
                 </div>
-                <button className="rounded-full ...">  <Link to={`/item/${dato.id}`}> Ver detalle</Link> </button>
+                <button className="rounded-full ...  botoncolor">  <Link to={`/item/${dato.id}`}> Ver detalle</Link> </button>
 
             </div>
         </div>
