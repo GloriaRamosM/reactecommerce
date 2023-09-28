@@ -23,7 +23,7 @@ const CartDetail = () => {
                 ))
             }
 
-            <button onClick={() => clear ()}>Limpiar el carrito</button>
+            <button onClick={() => clear()}>Limpiar el carrito</button>
         </div>
     )
 }
