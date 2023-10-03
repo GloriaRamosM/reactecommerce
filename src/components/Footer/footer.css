@@ -1,0 +1,22 @@
+
+.footer{
+        background: slategrey;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+}
+
+.lista {
+    list-style: none; /* Quita los marcadores de lista predeterminados */
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+    display: flex; /* Aplica Flexbox al contenedor (ul) */
+    justify-content: center;
+        
+}
+
+.lista li {
+    color: antiquewhite;
+  padding: 20px; /* Espaciado entre elementos */
+}

@@ -7,28 +7,34 @@ import LandingPage from './components/LandingPage/LandingPage';
 import ItemDetailContainer from './components/Item/ItemDetailContainer';
 import Cart from './pages/Cart'
 import CartContextProvider from './context/cartContext/CartContextProvider';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
   return (
 
+    <div className='page-container'>
+      <div className='content-wrap'>
+        <BrowserRouter>
+          <CartContextProvider>
 
-    <BrowserRouter>
-      <CartContextProvider>
+            <Navbar />
 
-        <Navbar />
+            <Routes>
 
-        <Routes>
+              <Route path='/' element={<LandingPage />} />
+              <Route path='/items' element={<ItemListContainer />} />
+              <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+              <Route path='/category/:categoryId' element={<ItemListContainer />} />
+              <Route path='/cart' element={<Cart />} />
 
-          <Route path='/' element={<LandingPage />} />
-          <Route path='/items' element={<ItemListContainer />} />
-          <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-          <Route path='/category/:categoryId' element={<ItemListContainer />} />
-          <Route path='/cart' element={<Cart />} />
+            </Routes>
+            <Footer />
+          </CartContextProvider>
+        </BrowserRouter>
 
-        </Routes>
-      </CartContextProvider>
-    </BrowserRouter>
+      </div>
+    </div>
 
   );
 }
