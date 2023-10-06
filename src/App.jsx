@@ -11,21 +11,17 @@ import Footer from './components/Footer/Footer';
 import UserContext from './context/UserContext';
 import { useState } from 'react';
 import UserProfile from './components/User/UserProfile';
-
+import UserContextProvider from './context/UserContextProvider';
 
 function App() {
 
-  const[user, setUser] = useState({
-    name: "Gloria",
-    age:27
-  })
 
   return (
 
     <div className='page-container'>
 
       <BrowserRouter>
-        <UserContext.Provider value={user} >
+        <UserContextProvider>
           <CartContextProvider>
 
             <Navbar />
@@ -44,7 +40,7 @@ function App() {
             <Footer />
 
           </CartContextProvider>
-        </UserContext.Provider>
+        </UserContextProvider>
       </BrowserRouter>
 
 

@@ -12,7 +12,6 @@ const Navbar = () => {
     return (
         <div className='flex items-center justify-between px-10 py-5 bg-slate-400'>
             <Link to={'/'}> <img className='w-60' src="/src/multimedia/branding/logo_light_horizontal.svg " alt="" /> </Link>
-
             <ul className='flex'>
                 <li className='mx-5 text-zinc-50'>
                     <Link to={'/'}> Home </Link>

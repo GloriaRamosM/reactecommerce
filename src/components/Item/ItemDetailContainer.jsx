@@ -1,30 +1,39 @@
 import React, { useState, useEffect } from 'react'
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom';
+import { doc, getDoc, getFirestore } from "firebase/firestore"
 
 
 const ItemDetailContainer = () => {
 
     const { itemId } = useParams();
-    const [item, setItem] = useState({})
 
-    const getData = () => {
-        fetch(`https://rickandmortyapi.com/api/character/${itemId}`)
-            .then((response) => response.json())
-            .then((data) => setItem(data))
-            .catch((error) => console.log(error))
-    }
+    const [item, setItem] = useState(null)
+
+
 
     useEffect(() => {
-        getData()
-    }, [])
+        const db = getFirestore();
 
-    
+        const itemRef = doc(db, "productos", itemId)
+
+        getDoc(itemRef)
+            .then((snapshot) => {
+                console.log(snapshot.exists())
+                if (snapshot.exists()) {
+                    setItem({...snapshot.data(), id: itemId})
+                }
+            })
+
+            .catch((err) => console.log(err))
+
+    }, [])
 
     return (
         <>
-            <ItemDetail item={item}/>
+            {item && <ItemDetail item={item} />}
         </>
+
     )
 }
 

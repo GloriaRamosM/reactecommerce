@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ItemList from '../ItemList/ItemList';
 import "../ItemListContainer/ItemListContainer.css"
 import { useParams } from "react-router-dom";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 
 
@@ -15,14 +16,24 @@ const ItemListContainer = () => {
 
     const [data, setData] = useState([])
 
-    const apiUrl = `https://rickandmortyapi.com/api/character${categoryId ? `/?status=${categoryId}` : '/'}`
+
 
     const getData = () => {
-        fetch(apiUrl)
-            .then((response) => response.json())
-            .then((data) => setData(data.results))
-            .catch((error) => setError(error))
-            .finally(() => setLoading(false))
+        const db = getFirestore()
+
+        const productsRef = collection(db, "productos")
+
+        getDocs(productsRef)
+        .then((snapshot) => {
+            const products = snapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
+            setData(products)
+        })
+        .catch((err) => {
+            setError(err)
+        })
+        .finally(() => {
+            setLoading(false)
+        })
     }
     console.log(error)
 
@@ -36,7 +47,7 @@ const ItemListContainer = () => {
         <div className="flex flex-row flex-wrap space-x-32 space-y-32">
             {loading && <p> Cargando...</p>}
             {error && <p> 404 </p>}
-            <ItemList data={data} />
+            {!loading && <ItemList data={data} />}
         </div>
     )
 }

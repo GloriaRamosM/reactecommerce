@@ -18,10 +18,9 @@ const {addItem} = useContext(CartContext)
     return(
         <div>
         <h3>{item.name}</h3>
-        <img src={item.image} />
-        <p>Especie: {item.species}</p>
-        <p>Genero: {item.gender}</p>
-        <p>Estatus: {item.status}</p>
+        <p>Category: {item.category}</p>
+        <p>Stock: {item.stock}</p>
+        <p>Precio: {item.price}</p>
         <p>Para adquirir la postal, agrega al carrito</p>
         
       {!sent && <ItemCount stock={20} initial={1} onAdd={onAdd} />  }
