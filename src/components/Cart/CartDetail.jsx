@@ -13,10 +13,9 @@ const CartDetail = () => {
                 cart.map(el => (
                     <div>
                         <p><img src={el.item.image} /></p>
-                        <p>ID:{el.item.id}</p>
                         <p>Name:{el.item.name}</p>
-                        <p>Status:{el.item.status}</p>
-                        <p>Genero: {el.item.gender}</p>
+                        <p>Stock:{el.item.stock}</p>
+                        <p> {el.item.description}</p>
                         <button onClick={() => removeItem(el.item.id)} >Eliminar</button>
 
                     </div>

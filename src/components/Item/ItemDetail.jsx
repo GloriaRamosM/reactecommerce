@@ -17,14 +17,16 @@ const {addItem} = useContext(CartContext)
 
     return(
         <div>
+            <img src={item.image}/>
         <h3>{item.name}</h3>
+
         <p>Category: {item.category}</p>
         <p>Stock: {item.stock}</p>
         <p>Precio: {item.price}</p>
-        <p>Para adquirir la postal, agrega al carrito</p>
+        
         
       {!sent && <ItemCount stock={20} initial={1} onAdd={onAdd} />  }
-      {sent && <button>    <Link to={'/cart'}> Terminar mi compra </Link>  </button>}  
+      {sent && <button>    <Link to={'/cart'}> Ir al carrito </Link>  </button>}  
         
         
     </div>

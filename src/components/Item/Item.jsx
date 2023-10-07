@@ -15,11 +15,12 @@ const Item = ({ dato }) => {
                     <h1 className="flex-auto text-lg font-semibold text-slate-900">
                         {dato.name}
                     </h1>
-                    <div className="text-lg font-semibold text-slate-500">
-                        Genero: {dato.gender}
-                    </div>
+                   
                     <div className="w-full flex-none text-sm font-medium text-slate-700 mt-2 py-7">
-                        <p> ID : {dato.id}  </p>
+                        <p> Categoria: <span>{dato.category} </span> </p>
+                    </div>
+                    <div className="text-lg font-semibold text-slate-500">
+                    Stock: {dato.stock}
                     </div>
                 </div>
                 <button className="rounded-full ...  botoncolor">  <Link to={`/item/${dato.id}`}> Ver detalle</Link> </button>

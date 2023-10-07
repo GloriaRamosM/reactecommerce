@@ -19,9 +19,9 @@ const Navbar = () => {
                 <li className='mx-5 text-zinc-50'>
                     <Link to={'/items'}> Catalogo </Link>
                 </li>
-                <li className='mx-5 text-zinc-50'> <Link to={'/category/alive'}>Alive</Link>
+                <li className='mx-5 text-zinc-50'> <Link to={'/category/Pokemon'}>Pokemon</Link>
                 </li>
-                <li className='mx-5 text-zinc-50'> <Link to={'/category/dead'}>Dead</Link>
+                <li className='mx-5 text-zinc-50'> <Link to={'/category/Star-Wars'}>Star Wars</Link>
                 </li>
                 <li className='mx-5 text-zinc-50'> <Link to={'/user'}>User Profile</Link>
                 </li>
