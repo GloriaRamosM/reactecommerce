@@ -12,6 +12,8 @@ import UserContext from './context/UserContext';
 import { useState } from 'react';
 import UserProfile from './components/User/UserProfile';
 import UserContextProvider from './context/UserContextProvider';
+import Checkout from './components/Checkout/Checkout';
+
 
 function App() {
 
@@ -34,7 +36,7 @@ function App() {
                 <Route path='/category/:categoryId' element={<ItemListContainer />} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/user' element={<UserProfile />} />
-
+                <Route path='/checkout/:orderId' element={<Checkout />} />
               </Routes>
             </div>
             <Footer />

@@ -19,7 +19,6 @@ const ItemDetailContainer = () => {
 
         getDoc(itemRef)
             .then((snapshot) => {
-                console.log(snapshot.exists())
                 if (snapshot.exists()) {
                     setItem({...snapshot.data(), id: itemId})
                 }
