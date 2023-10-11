@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import ItemList from '../ItemList/ItemList';
 import "../ItemListContainer/ItemListContainer.css"
 import { useParams } from "react-router-dom";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query , where} from "firebase/firestore";
 
 
 
 
 const ItemListContainer = () => {
-    const { categoryId } = useParams()
+    const { category } = useParams()
 
     const [loading, setLoading] = useState(true)
     
@@ -23,7 +23,9 @@ const ItemListContainer = () => {
 
         const productsRef = collection(db, "productos")
 
-        getDocs(productsRef)
+        const q = category ? query(productsRef , where("category" , "==" , category)) : productsRef
+
+        getDocs(q)
         .then((snapshot) => {
             const products = snapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
             setData(products)
@@ -40,7 +42,7 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         getData()
-    }, [categoryId])
+    }, [category])
 
     return (
 

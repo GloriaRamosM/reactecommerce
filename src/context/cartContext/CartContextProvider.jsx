@@ -33,6 +33,16 @@ const CartContextProvider = ({ children }) => {
         setCart(newCart)
     };
 
+    const changeQuantity = (newq , id) =>{
+        const filterArray = cart.map((element) => {
+            if (element.item.id == id) {
+                element.q = newq
+            }
+            return element
+        })
+        setCart(filterArray)
+    }
+
     const clear = () => {
         setCart([])
     }
@@ -41,7 +51,8 @@ const CartContextProvider = ({ children }) => {
         addItem,
         removeItem,
         clear,
-        isInCart
+        isInCart,
+        changeQuantity
     }
     return (
         <CartContext.Provider value={values}>

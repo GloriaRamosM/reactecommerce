@@ -31,12 +31,12 @@ function App() {
               <Routes>
 
                 <Route path='/' element={<LandingPage />} />
-                <Route path='/items' element={<ItemListContainer />} />
+                <Route path='/items/:category?' element={<ItemListContainer />} />
                 <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-                <Route path='/category/:categoryId' element={<ItemListContainer />} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/user' element={<UserProfile />} />
-                <Route path='/checkout/:orderId' element={<Checkout />} />
+                <Route path='/checkout' element={<Checkout />} />
+                
               </Routes>
             </div>
             <Footer />
