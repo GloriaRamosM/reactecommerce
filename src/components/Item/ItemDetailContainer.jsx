@@ -11,20 +11,33 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState(null)
 
 
+    const getProduct = async () => {
+
+        try {
+
+            const db = getFirestore();
+
+            const itemRef = doc(db, "productos", itemId)
+
+            const snapshot = await getDoc(itemRef)
+            if (snapshot.exists()) {
+                setItem({ ...snapshot.data(), id: itemId })
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+
+
+
+
+
+    }
+
 
     useEffect(() => {
-        const db = getFirestore();
 
-        const itemRef = doc(db, "productos", itemId)
-
-        getDoc(itemRef)
-            .then((snapshot) => {
-                if (snapshot.exists()) {
-                    setItem({...snapshot.data(), id: itemId})
-                }
-            })
-
-            .catch((err) => console.log(err))
+        getProduct()
 
     }, [])
 

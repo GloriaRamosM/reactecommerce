@@ -1,4 +1,4 @@
-import { doc, getFirestore, updateDoc, addDoc , collection } from 'firebase/firestore'
+import { doc, getFirestore, updateDoc, addDoc, collection, writeBatch } from 'firebase/firestore'
 import React, { useState } from 'react'
 import { useContext } from 'react'
 import CartContext from '../../context/cartContext/CartContext'
@@ -11,7 +11,10 @@ const Checkout = () => {
     const { cart, clear } = useContext(CartContext)
     const [order, setOrder] = useState(null)
 
-    const FinalizarCompra = (event) => {
+
+
+
+    const FinalizarCompra = async (event) => {
         event.preventDefault()
 
 
@@ -23,19 +26,41 @@ const Checkout = () => {
             buyer: user,
             items: cart,
             date: new Date(),
-            total: cart.reduce((acc, element) => acc + element.item.price, 0)
+            total: cart.reduce((acc, element) => acc + (element.item.price * element.q), 0)
         }
 
 
-        const db = getFirestore();
-        const orderCollection = collection(db, "orders");
+        try {
+            const db = getFirestore();
+            const orderCollection = collection(db, "orders");
 
-        addDoc(orderCollection, purchase)
-            .then(res => { 
-                setOrder({ ...purchase, id: res.id})
-            })
-            .catch(err => console.log(err))
-        console.log(purchase)
+            const res = await addDoc(orderCollection, purchase)
+            
+            const batch = writeBatch(db)
+            purchase.items.forEach(element => {
+                let document = doc(db, "productos", element.item.id)
+                batch.update(document, { stock: element.item.stock - element.q })
+            });
+
+            await batch.commit()
+
+            setOrder({ ...purchase, id: res.id })
+        } catch (error) {
+            console.log(error)
+        }
+
+        // addDoc(orderCollection, purchase)
+        //     .then(res => {
+        //         const batch = writeBatch(db)
+        //         purchase.items.forEach(element => {
+        //             let document = doc(db, "productos", element.item.id)
+        //             batch.update(document, { stock: element.item.stock - element.q })
+        //         });
+        //         batch.commit()
+        //             .then(_ => setOrder({ ...purchase, id: res.id }))
+        //             .catch(err => console.log(err))
+        //     })
+        //     .catch(err => console.log(err))
 
         clear()
 
@@ -56,7 +81,7 @@ const Checkout = () => {
     return (
 
         <>  {order ? <div>
-          {order.buyer.name}  Gracias por tu compra. {order.id} y el total fue {order.total}
+            {order.buyer.name}  Gracias por tu compra. {order.id} y el total fue {order.total}
         </div> : <form onSubmit={FinalizarCompra} className='flex flex-col items-end w-80 ms-5'>  <div className="mt-10 flex flex-col w-full">
 
 

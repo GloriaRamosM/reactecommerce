@@ -20,7 +20,7 @@ const CartDetail = () => {
         <div >
             {
                 cart.map(el => (
-                <CartDetailItem elemento={el}/>
+                <CartDetailItem key={el.item.id} elemento={el}/>
                 ))
             }
 

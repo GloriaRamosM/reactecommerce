@@ -23,6 +23,8 @@ const Navbar = () => {
                 </li>
                 <li className='mx-5 text-zinc-50'> <Link to={'/items/Star-Wars'}>Star Wars</Link>
                 </li>
+                <li className='mx-5 text-zinc-50'> <Link to={'/items/Hogwarts'}>Harry Potter</Link>
+                </li>
                 <li className='mx-5 text-zinc-50'> <Link to={'/user'}>User Profile</Link>
                 </li>
             </ul>
