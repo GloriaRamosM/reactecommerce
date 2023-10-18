@@ -10,13 +10,13 @@ const ItemList = ({ data }) => {
     return (
 
         <>
-            { 
-                data.map((dato, index) => {
+            {
+                data.map((dato) => {
                     return (
 
-                        <div key={index}>
-                            <Item dato={dato} key={dato.id} />
-                        </div>
+
+                        <Item dato={dato} key={dato.id} />
+
 
                     )
                 })

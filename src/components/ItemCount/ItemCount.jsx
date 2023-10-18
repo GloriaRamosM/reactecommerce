@@ -12,7 +12,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     return (
 
-        <div className="flex space-x-4 mb-6 text-sm font-medium">
+        <div className="flex space-x-4  text-sm font-medium">
             <div className="flex-auto flex space-x-4">
                 <button onClick={suma} className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="button">
                     +

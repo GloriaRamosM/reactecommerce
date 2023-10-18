@@ -8,10 +8,6 @@ import ItemDetailContainer from './components/Item/ItemDetailContainer';
 import Cart from './pages/Cart'
 import CartContextProvider from './context/cartContext/CartContextProvider';
 import Footer from './components/Footer/Footer';
-import UserContext from './context/UserContext';
-import { useState } from 'react';
-import UserProfile from './components/User/UserProfile';
-import UserContextProvider from './context/UserContextProvider';
 import Checkout from './components/Checkout/Checkout';
 
 
@@ -23,26 +19,26 @@ function App() {
     <div className='page-container'>
 
       <BrowserRouter>
-        <UserContextProvider>
-          <CartContextProvider>
 
-            <Navbar />
-            <div className='content-wrap'>
-              <Routes>
+        <CartContextProvider>
 
-                <Route path='/' element={<LandingPage />} />
-                <Route path='/items/:category?' element={<ItemListContainer />} />
-                <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-                <Route path='/cart' element={<Cart />} />
-                <Route path='/user' element={<UserProfile />} />
-                <Route path='/checkout' element={<Checkout />} />
-                
-              </Routes>
-            </div>
-            <Footer />
+          <Navbar />
+          <div className='content-wrap'>
+            <Routes>
 
-          </CartContextProvider>
-        </UserContextProvider>
+              <Route path='/' element={<LandingPage />} />
+              <Route path='/items/:category?' element={<ItemListContainer />} />
+              <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+              <Route path='/cart' element={<Cart />} />
+
+              <Route path='/checkout' element={<Checkout />} />
+
+            </Routes>
+          </div>
+          <Footer />
+
+        </CartContextProvider>
+
       </BrowserRouter>
 
 
