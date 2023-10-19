@@ -37,7 +37,7 @@ const ItemListContainer = () => {
                 setLoading(false)
             })
     }
-    console.log(error)
+
 
 
     useEffect(() => {

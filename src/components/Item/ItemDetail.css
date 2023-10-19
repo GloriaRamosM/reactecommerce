@@ -92,3 +92,19 @@ line-height: 50px;
     color: #343131;
     
 }
+
+.cart_button{
+    width: 100%;
+    padding: 15px 0;
+    background-color: #f36f0a;
+    color: #f0e8e8;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 40px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.cart_button:hover{
+    opacity: 0.7;
+}

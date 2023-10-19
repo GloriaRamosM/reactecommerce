@@ -4,12 +4,12 @@ import { useContext } from "react";
 import CartContext from "../../context/cartContext/CartContext";
 
 const CartWidget = () => {
-    const {cart} = useContext(CartContext)
-    console.log(cart)
+    const { cart } = useContext(CartContext)
+
 
     return (
         <span className='flex items-center text-zinc-50' >
-            <Link to={'/cart'}> <AiOutlineShoppingCart /> {cart.reduce((acc, product) => acc+ product.q ,0  )}</Link>
+            <Link to={'/cart'}> <AiOutlineShoppingCart /> {cart.reduce((acc, product) => acc + product.q, 0)}</Link>
         </span>
     );
 };

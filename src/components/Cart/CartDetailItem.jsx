@@ -1,47 +1,52 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useContext } from 'react'
 import CartContext from '../../context/cartContext/CartContext'
+import "./CartDetailItem.css"
 
 
 
 
 const CartDetailItem = ({ elemento }) => {
 
-    const [newQuantity, setNewQuantity] = useState(elemento.q)
+
 
     const { removeItem, changeQuantity } = useContext(CartContext)
 
 
 
     const suma = () => {
-        newQuantity < elemento.item.stock && setNewQuantity(newQuantity + 1);
+        elemento.q < elemento.item.stock && changeQuantity(elemento.q + 1, elemento.item.id);
     };
 
     const resta = () => {
-        newQuantity > 0 && setNewQuantity(newQuantity - 1);
+        elemento.q > 0 && changeQuantity(elemento.q - 1, elemento.item.id);
     };
 
     return (
-        <div>
+        <div className='cart_detail_item_container'>
 
-            <p><img src={elemento.item.image} /></p>
-            <p>Name:{elemento.item.name}</p>
-            <p>Cantidad: {elemento.q}</p>
-            <p> {elemento.item.description}</p>
+            <div className='cart_product_detail'>
+                <img src={elemento.item.image} alt="imagen de producto" />
+                <div>
+                    <p className='cart_product_name'> {elemento.item.name}</p>
+                    <p className='cart_product_category'>{elemento.item.category}</p>
+                    <span className='cart_product_price'>${elemento.item.price}</span>
+                </div>
+            </div>
 
 
 
-            <div className="flex-auto flex space-x-4">
-                <button onClick={suma} className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="button">
+            <div className="cart_item_count">
+                <button onClick={suma} type="button">
                     +
                 </button>
-                <p>{newQuantity}</p>
-                <button onClick={resta} className="h-10 px-6 font-semibold rounded-md border border-slate-200 text-slate-900" type="button">
+                <p>{elemento.q}</p>
+                <button onClick={resta} type="button">
                     -
                 </button>
             </div>
-            <button onClick={() => changeQuantity(newQuantity, elemento.item.id)}> change q</button>
-            <button onClick={() => removeItem(elemento.item.id)} >Eliminar</button>
+
+            <button className='delete_product_button' onClick={() => removeItem(elemento.item.id)} >Eliminar</button>
 
 
         </div>
