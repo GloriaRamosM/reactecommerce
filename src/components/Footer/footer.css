@@ -1,6 +1,6 @@
 
 .footer{
-        background: slategrey;
+       
         padding: 20px;
         text-align: center;
         position: relative;
@@ -13,10 +13,13 @@
     padding: 0; /* Elimina el relleno predeterminado de la lista */
     display: flex; /* Aplica Flexbox al contenedor (ul) */
     justify-content: center;
+    width: 100%;
         
 }
 
 .lista li {
-    color: antiquewhite;
+    color: rgb(254, 250, 245);
+    font-size: 20px;
   padding: 20px; /* Espaciado entre elementos */
+  
 }

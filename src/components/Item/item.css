@@ -11,34 +11,36 @@
 }
 
 .card_container > img {
-    background-color: #CDFAD5;
+    background-color: #f1f0c3;
 }
 
 .card_container > h3{
     margin: 10px ;
-    font-weight: 500;
-    font-size: 20px;
-    color: #1d1b1b;
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #6b6a6a;
+    
 }
 
 .card_container > span{
     font-size: 20px;
     font-weight: 600;
-    color: #5D12D2;
+    color: #2E86AB;
 }
 
 .buttonVerMas{
-    margin: 10px;
-    background-color: #F4E869;
+    margin: 20px;
+    background-color: #F25C54;
     padding: 10px 30px;
     border-radius: 25px;
     font-size: 18px;
-    color: #1d1b1b;
+    color: white;
     transition: 0.3s;
 }
 
 .buttonVerMas:hover{
-background-color: #e1d336;
+background-color: #d1514a;
 transform: scale(1.08);
 
 }
