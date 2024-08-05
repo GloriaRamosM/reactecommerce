@@ -1,11 +1,9 @@
-.container-landing  {
-    margin: 0px;
-    padding: 40px;
-    /* background-color: rgb(218, 248, 249) */;
-     background-image: url(https://woomagazine.com.br/wp-content/uploads/2017/12/maxresdefault-5-scaled.jpg);
-     min-width: 100vw;
-     height: 100vh;
-     background-size: cover;
-    
-
+.container-landing {
+  margin: 0px;
+  padding: 40px;
+  /* background-color: rgb(218, 248, 249) */
+  background-image: url(https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/02/estantes-figuras-funko-pop-1861835.jpg?tf=3840x);
+  min-width: 100vw;
+  height: 100vh;
+  background-size: cover;
 }
