@@ -47,7 +47,7 @@ const ItemListContainer = () => {
     return (
 
         <div className="list_container">
-            {loading && <p> Cargando...</p>}
+            {loading && <p> Cargando.....</p>}
             {error && <p> 404 </p>}
             {!loading && <ItemList data={data} />}
         </div>
