@@ -37,7 +37,7 @@ const ItemDetail = ({ item }) => {
 
 
                 {!sent && <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />}
-                {sent && <Link className='cart_button' to={'/cart'}> Ir al carrito </Link>}
+                {sent && <Link className='cart_button' to={'/cart'}> Ir al cart </Link>}
             </div>
 
         </div>
